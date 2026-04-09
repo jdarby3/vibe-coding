@@ -1,14 +1,12 @@
 #!/bin/bash
-COUNTER_FILE=".claude/state/dirty.txt"
-mkdir -p .claude/state
-COUNT=$(cat "$COUNTER_FILE" 2>/dev/null || echo 0)
-COUNT=$((COUNT + 1))
-echo $COUNT > "$COUNTER_FILE"
+# post-tool-use.sh — runs after every Claude tool use
+# Logs file writes to state/PROGRESS.md for human visibility
 
-if [ "$COUNT" -eq 20 ]; then
-  echo "⚠️  20 tool calls this session — watch context usage" >> .claude/handoff.md
-fi
+TOOL="$1"
+INPUT="$2"
 
-if [ "$COUNT" -eq 40 ]; then
-  echo "⚠️  40 tool calls — context likely above 60%, consider /project:handoff soon" >> .claude/handoff.md
+if [[ "$TOOL" == "Write" || "$TOOL" == "Edit" ]]; then
+  if [ -f "state/PROGRESS.md" ]; then
+    echo "- [$(date '+%Y-%m-%d %H:%M')] Modified: $INPUT" >> state/PROGRESS.md
+  fi
 fi
