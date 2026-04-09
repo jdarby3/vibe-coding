@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This is a solo [STACK] project. Single developer. Claude operates with full autonomy during execution.
+This is a solo [framework] + TypeScript project. Single developer. Claude operates with full autonomy during execution.
 
 ## Session Protocol
 
@@ -19,6 +19,7 @@ Never ask clarifying questions mid-task. Make a reasonable call, note it, and co
 ## Rules
 
 @.claude/rules/conventions.md
+@.claude/rules/framework.md
 
 ## Commands
 
@@ -45,11 +46,10 @@ Preserve: current task, files modified, decisions made, next action.
 Discard: tool output details, file contents already committed, resolved errors.
 Always write .claude/handoff.md before compacting.
 At 70% context usage, stop all current work. Write a full handoff by running /project:handoff. Then ask the user: "Context is at 70% — handoff written to .claude/handoff.md. Continue here with a smaller task, or spin up a fresh session?"
-Do not auto-compact. Do not continue the current task. Wait for user input.
 
 ## Context Awareness
 
-- At 70% context usage: stop current task, run /project:handoff, then ask the user whether to continue with a small task or end the session. Do not proceed with large tasks above 70%.
+- At 70% context usage: stop current task, run /project:handoff, then ask the user whether to continue with a small task or end the session.
 - At 50% context usage: note it internally, finish the current atomic task, then run /project:handoff as a checkpoint before starting anything new.
 - Small tasks (single file edits, quick fixes, questions) are always fine regardless of context level.
 - Never auto-compact without running /project:handoff first.

@@ -2,20 +2,19 @@
 <!-- This file is maintained by Claude. Read it at the start of every session to restore context. -->
 
 ## Current Status
-Project just initialized. Nothing built yet.
+<!-- One sentence on where things stand -->
 
 ## Last Session
-<!-- Claude fills this in at end of each session -->
+<!-- Date + what was done -->
 
 ## In Progress
 <!-- Nothing in progress -->
 
 ## Up Next
-- [ ] Define project scope and stack
-- [ ] Scaffold initial project structure
+<!-- What to tackle next session -->
 
 ## Known Issues
-<!-- None yet -->
+<!-- Bugs, blockers, tech debt worth tracking -->
 
 ## Decisions Made
-<!-- Claude logs autonomous decisions here -->
+<!-- Architectural or product decisions and their rationale -->

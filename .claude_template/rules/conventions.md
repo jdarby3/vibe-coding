@@ -16,15 +16,15 @@ types/                # TypeScript type definitions
 | Thing | Convention | Example |
 |---|---|---|
 | Components | PascalCase | `UserCard.tsx` |
-| Hooks | useCamelCase | `useAuth.ts` |
+| Hooks | useCamelCase | `useData.ts` |
 | Utilities | camelCase | `formatDate.ts` |
-| Constants | SCREAMING_SNAKE_CASE | `MAX_ITEMS_PER_PAGE` |
-| Directories | kebab-case | `components/user-profile/` |
+| Constants | SCREAMING_SNAKE_CASE | `MAX_ITEMS` |
+| Directories | kebab-case | `components/user-card/` |
 
 ## Code Style
 
 - Functional components only — no class components.
-- Named exports for all components; default exports for Next.js pages/layouts only.
+- Named exports for all components; default exports for pages/layouts only.
 - No inline styles — use Tailwind classes exclusively.
 - `async/await` over `.then()` chains.
 - `const` over `let`; never `var`.
