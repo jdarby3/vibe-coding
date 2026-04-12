@@ -82,7 +82,7 @@ Sub-agents run in isolated context so they don't consume your main conversation 
 
 This is where the setup pays off. The config is only useful if you know how to work with it.
 
-**Parallel instances.** Open 2–3 terminal panes each running `claude`. One builds a feature, another writes tests, a third handles docs or research. If they touch overlapping files, use `git worktree add ../project-feature feature-branch` so each instance works on its own branch without conflicts. This is the single biggest productivity multiplier — you stop waiting for Claude to finish one thing before starting another.
+**Parallel instances.** Open 2–3 terminal panes each running `claude`. One builds a feature, another writes tests, a third handles docs or research. Run `/worktree` to spin up an isolated branch and directory for each instance — Claude handles the `git worktree` setup and tells you exactly where to open the new terminal. When a feature session is done, run `/worktree-merge` and Claude commits pending work, runs tests, reviews the diff, merges back to main, removes the worktree, and tells you to close the terminal. You never touch git directly. This is the single biggest productivity multiplier — you stop waiting for Claude to finish one thing before starting another.
 
 **The two-session pattern.** Session A writes the code. Close it. Open Session B fresh and have it review Session A's work like a staff engineer who has never seen the implementation. A fresh context catches things the `/review` command within the same session can't, because it has no sunk cost in the choices Session A made. Use `/review` for quick pre-commit checks; use a fresh session for serious review of complex features or before merging anything significant.
 
@@ -123,6 +123,8 @@ Then run `/mcp` inside Claude Code to complete the OAuth login — it opens a br
 | `/handoff` | Write a handoff note for the next session |
 | `/memory` | Review and update session memory |
 | `/parallel` | Plan parallel vs sequential task execution |
+| `/worktree` | Spin up a new git worktree for a parallel Claude session |
+| `/worktree-merge` | Merge a worktree branch back to main and clean up |
 
 ## Customise it
 
