@@ -80,6 +80,26 @@ Sub-agents run in isolated context so they don't consume your main conversation 
 - **Sequential**: Task B needs Task A's output, or scope is unclear → one at a time
 - **Background** (`Ctrl+B`): research and exploration that isn't blocking current work
 
+## Solo dev workflow guide
+
+This is where the setup pays off. The config is only useful if you know how to work with it.
+
+**Parallel instances.** Open 2–3 terminal panes each running `claude`. One builds a feature, another writes tests, a third handles docs or research. If they touch overlapping files, use `git worktree add ../project-feature feature-branch` so each instance works on its own branch without conflicts. This is the single biggest productivity multiplier — you stop waiting for Claude to finish one thing before starting another.
+
+**The two-session pattern.** Session A writes the code. Close it. Open Session B fresh and have it review Session A's work like a staff engineer who has never seen the implementation. A fresh context catches things the `/review` command within the same session can't, because it has no sunk cost in the choices Session A made. Use `/review` for quick pre-commit checks; use a fresh session for serious review of complex features or before merging anything significant.
+
+**Interview-driven specs.** Don't write specs yourself. Open a session and say: "I want to build X. Interview me — ask about edge cases, tradeoffs, and technical constraints. Don't ask obvious questions. When done, write the spec to `.claude/state/prd.md`." Then close that session and open a fresh one to execute against the spec. The `/prd` command does a version of this, but the key insight is separating the interview from the execution — the executing session starts with a complete spec instead of a context full of exploration and half-formed ideas.
+
+**`ultrathink` for hard decisions.** When facing a real architectural choice — database schema, auth design, API shape, "should I use X or Y" — prefix your message with "think hard" or "ultrathink" to activate extended reasoning. Don't use it for routine coding; it burns context for no gain on straightforward tasks. Save it for the decisions that are expensive to undo.
+
+**Context management.** Run `/compact` at around 50% context. Don't wait for auto-compaction to kick in — by then you've already lost headroom. When you compact, tell it what to preserve: `/compact — preserve current task list, modified files, test status, and key decisions made this session`. Use `/clear` when switching to an unrelated task mid-session. Delegate any heavy file-reading work (mapping an unfamiliar module, reading through docs) to the `file-scanner` agent so your main context stays clear for actual work.
+
+**Session continuity.** `claude --continue` resumes your last session. `claude --resume` shows a list of past sessions to pick from. Both are faster than starting fresh and reading handoff notes for short breaks. Use `/handoff` for end-of-day or multi-day breaks where you want a clean, documented starting point next time.
+
+**`/loop` for monitoring.** After deploying, run `/loop 5m check if the deploy succeeded and report back`. It polls in the background while you keep working. Works the same for watching a CI pipeline or waiting on a long build: `/loop 2m check if the GitHub Actions run on the main branch has finished and tell me the result`.
+
+**MCP servers.** Set up at minimum the GitHub MCP server so Claude can read issues, create PRs, and interact with your repo directly without you copy-pasting URLs. For frontend work, add a browser MCP (Playwright or Chrome DevTools) so Claude can visually inspect its own output. Configure MCP servers in `.mcp.json` at the repo root, then add `Mcp` to `permissions.allow` in `settings.json`.
+
 ## Slash commands
 
 | Command | What it does |
