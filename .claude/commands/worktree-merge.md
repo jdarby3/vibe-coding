@@ -16,7 +16,7 @@ Merge this worktree's branch back to main and clean up. Run this from inside a f
 
 3. **Commit any uncommitted work** — if there are unstaged or staged changes, commit them now with a conventional commit message before proceeding.
 
-4. **Run tests** — detect and run the project's test suite. If tests fail, fix them before continuing. Do not merge broken code.
+4. **Run tests** — check whether a test suite exists (jest/vitest/pytest/go test/cargo test config). If one exists, run it. If tests fail, fix them before continuing. If no test suite exists, skip this step and continue.
 
 5. **Review the diff** — spawn the reviewer agent against the full diff vs main:
    ```

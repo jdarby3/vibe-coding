@@ -5,7 +5,7 @@ A Claude Code starter kit. Drop the `.claude/` folder into any repo and get a st
 ## How to use
 
 1. Copy the `.claude/` folder into the root of your repo
-2. Run `claude` orrr `claude --dangerously-skip-permissions` for speed
+2. Run `claude` or `claude --dangerously-skip-permissions` for speed
 
 ## What happens when you run claude
 
@@ -42,7 +42,10 @@ A Claude Code starter kit. Drop the `.claude/` folder into any repo and get a st
 │   ├── deploy.md          # Pre-deploy checklist
 │   ├── handoff.md         # Write session handoff note
 │   ├── memory.md          # Review session memory
-│   └── parallel.md        # Plan parallel vs sequential tasks
+│   ├── parallel.md        # Plan parallel vs sequential tasks
+│   ├── worktree.md        # Spin up a parallel Claude worktree session
+│   ├── worktree-merge.md  # Merge a worktree branch back to main
+│   └── setup-mcp.md       # Connect external tools via MCP
 ├── hooks/
 │   ├── stop.sh            # Auto-creates state/; stamps session-end breadcrumb
 │   └── post-tool-use.sh   # Lint/format reminder after file writes
