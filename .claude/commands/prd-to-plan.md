@@ -1,4 +1,4 @@
-Read `.claude/prd.md`. Break it into an ordered implementation plan.
+Read `.claude/state/prd.md`. Break it into an ordered implementation plan.
 
 For each task:
 - **Task**: one sentence description.

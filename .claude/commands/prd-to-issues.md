@@ -1,4 +1,4 @@
-Read `.claude/prd.md` and `.claude/state/tasks.md`. Convert each task into a GitHub-issue-ready format:
+Read `.claude/state/prd.md` and `.claude/state/tasks.md`. Convert each task into a GitHub-issue-ready format:
 
 ```
 ### [Task Title]

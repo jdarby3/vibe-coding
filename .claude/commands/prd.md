@@ -1,4 +1,4 @@
-Write a Product Requirements Document. Ask the user enough questions to fill this structure, then write it to `.claude/prd.md`:
+Write a Product Requirements Document. Ask the user enough questions to fill this structure, then write it to `.claude/state/prd.md`:
 
 ## PRD: [Title]
 

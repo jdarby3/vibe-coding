@@ -1,6 +1,6 @@
 {
   "permissions": {
-    "allow": ["Bash", "Computer", "Mcp"],
+    "allow": ["Bash"],
     "deny": []
   },
   "hooks": {
