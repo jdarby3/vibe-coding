@@ -90,8 +90,6 @@ This is where the setup pays off. The config is only useful if you know how to w
 
 **`ultrathink` for hard decisions.** When facing a real architectural choice — database schema, auth design, API shape, "should I use X or Y" — prefix your message with "think hard" or "ultrathink" to activate extended reasoning. Don't use it for routine coding; it burns context for no gain on straightforward tasks. Save it for the decisions that are expensive to undo.
 
-**Context management.** Run `/compact` at around 50% context. Don't wait for auto-compaction to kick in — by then you've already lost headroom. When you compact, tell it what to preserve: `/compact — preserve current task list, modified files, test status, and key decisions made this session`. Use `/clear` when switching to an unrelated task mid-session. Delegate any heavy file-reading work (mapping an unfamiliar module, reading through docs) to the `file-scanner` agent so your main context stays clear for actual work.
-
 **Session continuity.** `claude --continue` resumes your last session. `claude --resume` shows a list of past sessions to pick from. Both are faster than starting fresh and reading handoff notes for short breaks. Use `/handoff` for end-of-day or multi-day breaks where you want a clean, documented starting point next time.
 
 **`/loop` for monitoring.** After deploying, run `/loop 5m check if the deploy succeeded and report back`. It polls in the background while you keep working. Works the same for watching a CI pipeline or waiting on a long build: `/loop 2m check if the GitHub Actions run on the main branch has finished and tell me the result`.
