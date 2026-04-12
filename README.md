@@ -21,7 +21,7 @@ A Claude Code starter kit. Drop the `.claude/` folder into any repo and get a st
 ```
 .claude/
 ├── CLAUDE.md              # Lean auto-start instructions (@imports conventions + stack)
-├── settings.json          # Conservative permissions (Bash only) + hooks
+├── settings.json          # Full permissions (Bash, Computer, Mcp) + hooks
 ├── agents/                # Sub-agents for specialised tasks
 │   ├── reviewer.md        # Code review — runs before every commit
 │   ├── researcher.md      # Doc/API/library research without polluting main context
@@ -96,7 +96,7 @@ This is where the setup pays off. The config is only useful if you know how to w
 
 **`/loop` for monitoring.** After deploying, run `/loop 5m check if the deploy succeeded and report back`. It polls in the background while you keep working. Works the same for watching a CI pipeline or waiting on a long build: `/loop 2m check if the GitHub Actions run on the main branch has finished and tell me the result`.
 
-**MCP servers.** Set up at minimum the GitHub MCP server so Claude can read issues, create PRs, and interact with your repo directly without you copy-pasting URLs. For frontend work, add a browser MCP (Playwright or Chrome DevTools) so Claude can visually inspect its own output. Configure MCP servers in `.mcp.json` at the repo root, then add `Mcp` to `permissions.allow` in `settings.json`.
+**MCP servers.** Set up at minimum the GitHub MCP server so Claude can read issues, create PRs, and interact with your repo directly without you copy-pasting URLs. For frontend work, add a browser MCP (Playwright or Chrome DevTools) so Claude can visually inspect its own output. Configure MCP servers in `.mcp.json` at the repo root. MCP permissions are already enabled in the default `settings.json`.
 
 ## Slash commands
 
