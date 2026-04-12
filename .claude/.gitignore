@@ -1,0 +1,9 @@
+# Ephemeral session state — do not commit
+state/handoff.md
+state/tasks.md
+state/blueprint.md
+state/issues.md
+state/prd.md
+settings.local.json
+
+# PROGRESS.md is intentionally tracked — it's the project changelog
