@@ -5,9 +5,7 @@ A Claude Code starter kit. Drop the `.claude/` folder into any repo and get a st
 ## How to use
 
 1. Copy the `.claude/` folder into the root of your repo
-2. Run `claude`
-
-That's it. No setup script. No manual steps.
+2. Run `claude` orrr `claude --dangerously-skip-permissions` for speed
 
 ## What happens when you run claude
 
