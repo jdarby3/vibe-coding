@@ -130,10 +130,10 @@ This is where the setup pays off. The config is only useful if you know how to w
 
 ## Permissions
 
-Default permissions are conservative (`Bash` only). Add `Computer` and `Mcp` to `permissions.allow` in `settings.json` if you need them.
+The default grants full permissions — `Bash`, `Computer`, and `Mcp` — because this setup is designed for speed. This is the settings-file equivalent of `claude --dangerously-skip-permissions`.
 
-## Context management tips
+- **Bash**: run shell commands (build, test, lint, git, etc.)
+- **Computer**: read and write files, edit code
+- **Mcp**: connect to external tools via MCP servers (GitHub, browser automation, etc.)
 
-- Run `/compact` when context hits ~50% — don't wait for auto-compaction
-- Use `/clear` when switching to an unrelated task mid-session
-- Delegate heavy file-reading to the `file-scanner` agent to keep main context clean
+To restrict what Claude can do without prompting, edit `permissions.allow` in `.claude/settings.json`.
