@@ -96,7 +96,13 @@ This is where the setup pays off. The config is only useful if you know how to w
 
 **`/loop` for monitoring.** After deploying, run `/loop 5m check if the deploy succeeded and report back`. It polls in the background while you keep working. Works the same for watching a CI pipeline or waiting on a long build: `/loop 2m check if the GitHub Actions run on the main branch has finished and tell me the result`.
 
-**MCP servers.** Set up at minimum the GitHub MCP server so Claude can read issues, create PRs, and interact with your repo directly without you copy-pasting URLs. For frontend work, add a browser MCP (Playwright or Chrome DevTools) so Claude can visually inspect its own output. Configure MCP servers in `.mcp.json` at the repo root. MCP permissions are already enabled in the default `settings.json`.
+**MCP servers.** Set up at minimum the GitHub MCP server so Claude can read issues, create PRs, and interact with your repo directly without you copy-pasting URLs:
+
+```
+claude mcp add --transport http github https://api.githubcopilot.com/mcp/
+```
+
+Then run `/mcp` inside Claude Code to complete the OAuth login — it opens a browser, no API key needed. For services that do require a key, use `${VAR_NAME}` syntax in `.mcp.json` to keep secrets out of version control. Local servers like Playwright or the filesystem MCP need no auth at all. For frontend work, a browser MCP lets Claude visually inspect its own output. MCP permissions are already enabled in the default `settings.json`.
 
 ## Slash commands
 
